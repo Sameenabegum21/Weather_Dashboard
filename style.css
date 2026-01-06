@@ -1,63 +1,95 @@
-
-
-*{ 
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background:linear-gradient(115deg,#667eea,#9e4ba2);
+    background: linear-gradient(180deg, #87CEEB, #4facfe);
     min-height: 100vh;
     padding: 20px;
-    color: black;
+    color: #2c2c2c;
 }
+
 .container{ 
     max-width: 1300px;
     margin: auto;
 }
+
 .header{
-        text-align: center;color: rgb(255, 255, 254);
-        margin-bottom: 20px;}
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 25px;
+}
+
 .header h1{
-        font-size: 3em;
+    font-size: 3.2em;
+    letter-spacing: 1px;
 }
+
+.header p{
+    opacity: 0.9;
+}
+
 .search-box{
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 35px;
 }
+
 .search-box input{
-        padding: 12px;
-        border: none;
-        width: 450px;
-        border-radius: 20px;
-}
-.search-box button{
-    background-color: rgb(191, 107, 33);
-    padding: 10px;
+    padding: 14px 18px;
     border: none;
-    width: 90px;
-    border-radius: 20px;
+    width: 450px;
+    border-radius: 30px;
+    outline: none;
+    font-size: 1em;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
- 
+
+.search-box input:hover{
+    box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+}
+
 .search-box button{
+    background: linear-gradient(135deg, #399cfe, #5bb2ff);
+    color: #fff;
+    padding: 14px;
+    border: none;
+    width: 110px;
+    border-radius: 30px;
+    color: #fff;
+    font-weight: bold;
     cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: medium;
+}
+
+.search-box button:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
 .current-weather,
 .forecast-section{
-    background-color: #fff;
-    padding: 50px;
-    border-radius: 20px;
+    background: rgba(255,255,255,0.95);
+    padding: 40px;
+    border-radius: 25px;
     margin-bottom: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
 .current-weather-header{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    align-items: center;
+    margin-bottom: 25px;
 }
 
 .location{
@@ -66,80 +98,103 @@ body{
 }
 
 .date{
-    color: gray;
+    color: #666;
 }
 
 .current-main{
     display: flex;
-    gap: 30px;
+    gap: 40px;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .weather-icon{
-    font-size: 5em;
+    font-size: 5.5em;
 }
 
 .temperature{
-    font-size: 3.5em;
+    font-size: 3.8em;
     font-weight: bold;
-    color: #667eea;
+    color: #3d9eff
 }
 
 .description{
-    color: gray;
+    color: #777;
+    font-size: 1.1em;
 }
 
 .weather-details{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
-    gap: 15px;
+    gap: 20px;
 }
 
 .detail-item{
-    background: #f5e2ca;
+    background: linear-gradient(135deg,#fceabb,#f8b500);
     padding: 25px;
-    border-radius: 10px;
+    border-radius: 15px;
     text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.detail-item:hover{
+    transform: translateY(-6px);
 }
 
 .value{
     font-weight: bold;
+    font-size: 1.2em;
 }
 
 .hourly-forecast{
     display: flex;
-    gap: 10px;
+    gap: 15px;
     overflow-x: auto;
+    padding-bottom: 10px;
 }
 
 .hourly-item{
-    background:#9bd4f3;
-    padding: 10px;
-    border-radius: 10px;
+    background: linear-gradient(180deg, #4298e3, #00c6fb);
+    padding: 15px;
+    border-radius: 15px;
     text-align: center;
-    min-width: 100px;
+    min-width: 110px;
+    color: #fff;
+    transition: transform 0.3s ease;
 }
+
+.hourly-item:hover{
+    transform: scale(1.08);
+}
+
 .daily-forecast{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(130px,1fr));
-    gap: 10px;
+    gap: 15px;
 }
 
 .daily-item{
-    background: #dbbafc;
-    padding: 15px;
-    border-radius: 10px;
+    background:  #c7eaff;
+    padding: 18px;
+    border-radius: 15px;
     text-align: center;
+    transition: transform 0.3s ease;
 }
+
+.daily-item:hover{
+    transform: translateY(-5px);
+}
+
 .loading{
     text-align: center;
-    color: #58d2f4;
-    font-size: 1.5em;
+    color: #035b73;
+    font-size: 1.6em;
 }
+
 .error{
-    background: rgb(244, 129, 129);
-    color: #ffffff;
-    padding: 10px;
-    
+    background: linear-gradient(135deg,#ff6a6a,#ff3d3d);
+    color: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
 }
